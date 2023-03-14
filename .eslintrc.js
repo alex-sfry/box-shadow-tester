@@ -11,5 +11,8 @@ module.exports = {
         "sourceType": "module"
     },
     "rules": {
+        "prefer-const": "warn",
+        "max-len": ["warn", { "code": 120, "ignoreUrls": true }],
+        "semi": "warn"
     }
 }
