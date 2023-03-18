@@ -6,65 +6,70 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>box-shadow tester</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class='wrapper'>
         <div class='input-wrapper'>
             <div class='input-container'>
-                <span class='label'>offset-x</span>
+                <span class='input-container__label'>offset-x</span>
                 <div class='input-div'>
-                    <button class='btn'>-</button>
-                    <input type="text" class='input'>
-                    <button class='btn'>+</button>
+                    <button class='input-div__btn'>-</button>
+                    <input type="text" class='input-div__input'>
+                    <button class='input-div__btn'>+</button>
                 </div>
             </div>
             <div class='input-container'>
-                <span class='label'>offset-y</span>
+                <span class='input-container__label'>offset-y</span>
                 <div class='input-div'>
-                    <button class='btn'>-</button>
-                    <input type="text" class='input'>
-                    <button class='btn'>+</button>
+                    <button class='input-div__btn'>-</button>
+                    <input type="text" class='input-div__input'>
+                    <button class='input-div__btn'>+</button>
                 </div>
             </div>
             <div class='input-container'>
-                <span class='label'>blur-radius</span>
+                <span class='input-container__label'>blur-radius</span>
                 <div class='input-div'>
-                    <button class='btn'>-</button>
-                    <input type="text" class='input'>
-                    <button class='btn'>+</button>
+                    <button class='input-div__btn'>-</button>
+                    <input type="text" class='input-div__input'>
+                    <button class='input-div__btn'>+</button>
                 </div>
             </div>
             <div class='input-container'>
-                <span class='label'>spread-radius</span>
+                <span class='input-container__label'>spread-radius</span>
                 <div class='input-div'>
-                    <button class='btn'>-</button>
-                    <input type="text" class='input'>
-                    <button class='btn'>+</button>
+                    <button class='input-div__btn'>-</button>
+                    <input type="text" class='input-div__input'>
+                    <button class='input-div__btn'>+</button>
                 </div>
             </div>
             <div class='input-container'>
-                <span class='label'> HEX color</span>
+                <span class='input-container__label'> HEX color</span>
                 <div class='input-div'>
-                    <input type="text" class='input hex-color'>
+                    <input type="text" class='input-div__input input-div__input_hex-color' placeholder='#000 or #00ff00 or 00ff00ff'>
                     <div class='color'></div>
                 </div>
-                <span class='label'>RGB(A) color</span>
+                <span class='input-container__label'>RGB(A) color</span>
                 <div class='input-div'>
-                    <span class='rgb'>r</span>
-                    <input type="text" class='input-rgba'>
-                    <span class='rgb'>g</span>
-                    <input type="text" class='input-rgba'>
-                    <span class='rgb'>b</span>
-                    <input type="text" class='input-rgba'>
-                    <span class='rgb'>a</span>
-                    <input type="text" class='input-rgba'>
-                    <button class='btn'>convert</button>
+                    <span class='input-div__rgb'>R</span>
+                    <input type="text" class='input-div__input-rgba' placeholder='0-255'>
+                    <span class='input-div__rgb'>G</span>
+                    <input type="text" class='input-div__input-rgba' placeholder='0-255'>
+                    <span class='input-div__rgb'>B</span>
+                    <input type="text" class='input-div__input-rgba' placeholder='0-255'>
+                    <span class='input-div__rgb'>A</span>
+                    <input type="text" class='input-div__input-rgba' placeholder='0-1 or %'>
                 </div>
             </div>
         </div>
-        <button class='add-set'>Add set</button>
-        <div class='shadow-box'></div>
+        <button class='wrapper__add-set'>Add set</button>
+        <div class="shadow-boxes">
+            <div class='shadow-boxes__shadow-box'></div>
+        </div>
+            
     </div>
 
 </body>
