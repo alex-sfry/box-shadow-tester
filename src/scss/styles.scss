@@ -22,6 +22,13 @@ button:hover {
     align-items: center;
 }
 
+@mixin flex-c {
+    display: flex;
+    align-items: center;
+}
+
+
+
 @mixin font-opsans-400 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
@@ -36,8 +43,14 @@ button:hover {
 
     &__add-set {
         width: 80px;
-        margin: 20px 0 100px 0;
+        margin-bottom: 100px;
         border-radius: 5%;
+    }
+
+    .checkbox-div {
+        @include flex-c;
+        gap: 10px;
+        padding-left: 100px;
     }
 
     .shadow-boxes {
@@ -67,8 +80,7 @@ button:hover {
             gap: 5px;          
 
             .input-div {
-                display: flex;
-                align-items: center;
+                @include flex-c;
                 gap: 5px;               
 
                 &__btn {
