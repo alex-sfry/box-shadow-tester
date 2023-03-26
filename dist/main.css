@@ -1,0 +1,126 @@
+/*!***************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/scss/styles.scss ***!
+  \***************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap);
+/*!*******************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/scss/styles.scss (1) ***!
+  \*******************************************************************************************************************/
+input {
+  outline: 0;
+  text-align: center;
+}
+
+button {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  cursor: pointer;
+  background-color: #93faba;
+}
+
+button:hover {
+  background-color: #9297f7;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  gap: 20px;
+  padding: 20px 10px 0 10px;
+  font-size: 16px;
+}
+.wrapper__add-set {
+  width: 80px;
+  margin-bottom: 100px;
+  border-radius: 5%;
+}
+.wrapper .checkbox-div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 100px;
+}
+.wrapper .shadow-boxes.shadow-boxes_relative {
+  position: relative;
+}
+.wrapper .shadow-boxes.shadow-boxes_relative__shadow-box {
+  margin: 0 auto;
+  width: 150px;
+  height: 150px;
+  border: 1px solid #000;
+}
+.wrapper .shadow-boxes.shadow-boxes_relative__shadow-box_shadow-box-absolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.wrapper .input-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.wrapper .input-wrapper .input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.wrapper .input-wrapper .input-container .input-div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.wrapper .input-wrapper .input-container .input-div__btn {
+  width: 24px;
+  height: 24px;
+  padding: 0 4px 0 4px;
+  border-radius: 10%;
+}
+.wrapper .input-wrapper .input-container .input-div__input {
+  width: 50px;
+  text-align: center;
+}
+.wrapper .input-wrapper .input-container .input-div__rgb {
+  font-weight: 600;
+}
+.wrapper .input-wrapper .input-container .input-div__rgb:first-child {
+  color: red;
+}
+.wrapper .input-wrapper .input-container .input-div__rgb:nth-child(3) {
+  color: green;
+}
+.wrapper .input-wrapper .input-container .input-div__rgb:nth-child(5) {
+  color: blue;
+}
+.wrapper .input-wrapper .input-container .input-div__input-rgba {
+  height: 18px;
+  text-align: center;
+  width: 70px;
+  margin-right: 10px;
+}
+.wrapper .input-wrapper .input-container .input-div__color {
+  width: 22px;
+  height: 22px;
+  border: 1px solid #000;
+}
+.wrapper .input-wrapper .input-container:last-child {
+  align-items: flex-start;
+}
+.wrapper .input-wrapper .input-container:last-child .input-div__input {
+  width: 200px;
+  height: 18px;
+}
+.wrapper .input-wrapper .input-container:last-child .input-div__input::placeholder,
+.wrapper .input-wrapper .input-container:last-child .input-div__input-rgba::placeholder {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+}
+.wrapper .input-wrapper .input-container:last-child .input-container__label {
+  margin-left: 42px;
+}

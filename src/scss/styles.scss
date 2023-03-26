@@ -2,6 +2,7 @@
 
 input {
     outline: 0;
+    text-align: center;
 }
 
 button {
@@ -29,8 +30,6 @@ button:hover {
     align-items: center;
 }
 
-
-
 @mixin font-opsans-400 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
@@ -55,7 +54,7 @@ button:hover {
         padding-left: 100px;
     }
 
-    .shadow-boxes {
+    .shadow-boxes.shadow-boxes_relative {
         position: relative;
 
         &__shadow-box {
@@ -120,7 +119,7 @@ button:hover {
                     margin-right: 10px;
                 }
 
-                .color {
+                &__color {
                     width: 22px;
                     height: 22px;
                     border: 1px solid #000;
@@ -134,7 +133,6 @@ button:hover {
             .input-div__input {
                 width: 200px;
                 height: 18px;
-                text-align: center;
             }
 
             .input-div__input::placeholder,
