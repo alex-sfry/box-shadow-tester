@@ -1,52 +1,464 @@
-/*
- * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
- * This devtool is neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/main.js":
-/*!*********************!*\
-  !*** ./src/main.js ***!
-  \*********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ 939:
+/***/ ((__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scss/styles.scss */ \"./src/scss/styles.scss\");\nfunction _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }\nfunction _nonIterableRest() { throw new TypeError(\"Invalid attempt to destructure non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\"); }\nfunction _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === \"string\") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === \"Object\" && o.constructor) n = o.constructor.name; if (n === \"Map\" || n === \"Set\") return Array.from(o); if (n === \"Arguments\" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }\nfunction _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }\nfunction _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : \"undefined\" != typeof Symbol && arr[Symbol.iterator] || arr[\"@@iterator\"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i[\"return\"] && (_r = _i[\"return\"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }\nfunction _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }\n\nfunction initShadowTester() {\n  var wrapperDiv = document.querySelector('.wrapper');\n  resetInputFields();\n  addInputEvents();\n  wrapperDiv.addEventListener('click', function (e) {\n    switch (e.target.className) {\n      case 'input-div__btn':\n        handleClick(e.target);\n        break;\n      case 'wrapper__add-set' || 0:\n        addNewInputSet(e);\n        break;\n      case 'checkbox-div__checkbox':\n        handleInput(e.target);\n        break;\n      default:\n        return;\n    }\n  });\n  function handleClick(eTarget) {\n    var nextSibling = eTarget.nextElementSibling;\n    var prevSibling = eTarget.previousElementSibling;\n    if (nextSibling && nextSibling.className === 'input-div__input') {\n      nextSibling.value--;\n      nextSibling.dispatchEvent(new Event('input'));\n    }\n    if (prevSibling && prevSibling.className === 'input-div__input') {\n      prevSibling.value++;\n      prevSibling.dispatchEvent(new Event('input'));\n    }\n  }\n}\nfunction addInputEvents() {\n  var _selectElements = selectElements(),\n    _selectElements2 = _slicedToArray(_selectElements, 4),\n    inputFields = _selectElements2[1],\n    colorRgba = _selectElements2[2],\n    lastInputSet = _selectElements2[3];\n  inputFields.forEach(function (item) {\n    item.addEventListener('input', function (e) {\n      handleInput(e.target);\n    });\n  });\n  colorRgba.forEach(function (item) {\n    item.addEventListener('input', function () {\n      return handleColor(colorRgba, lastInputSet);\n    });\n  });\n}\nfunction selectElements() {\n  var allInputSets = document.querySelectorAll('.input-wrapper');\n  var lastInputSet = allInputSets[allInputSets.length - 1];\n  var inputFields = lastInputSet.querySelectorAll('.input-div__input');\n  var colorRgba = lastInputSet.querySelectorAll('.input-div__input-rgba');\n  return [allInputSets, inputFields, colorRgba, lastInputSet];\n}\nfunction resetInputFields() {\n  var _selectElements3 = selectElements(),\n    _selectElements4 = _slicedToArray(_selectElements3, 4),\n    inputFields = _selectElements4[1],\n    colorRgba = _selectElements4[2],\n    lastInputSet = _selectElements4[3];\n  inputFields.forEach(function (item, index) {\n    index !== inputFields.length - 1 ? item.value = '0' : item.value = '';\n  });\n  colorRgba.forEach(function (item) {\n    return item.value = '';\n  });\n  lastInputSet.querySelector('.checkbox-div__checkbox').checked = false;\n}\nfunction addNewInputSet(e) {\n  var newInputSet = document.querySelector('.input-wrapper').cloneNode(true);\n  var newShadowBox = document.createElement(\"div\");\n  newShadowBox.classList.add('shadow-boxes__shadow-box');\n  newShadowBox.classList.add('shadow-boxes__shadow-box_shadow-box-absolute');\n  e.target.insertAdjacentElement('beforebegin', newInputSet);\n  document.querySelector('.shadow-boxes__shadow-box').insertAdjacentElement('afterend', newShadowBox);\n  var _selectElements5 = selectElements(),\n    _selectElements6 = _slicedToArray(_selectElements5, 1),\n    allInputSets = _selectElements6[0];\n  allInputSets[allInputSets.length - 1].querySelector('.color').style.background = 'none';\n  resetInputFields();\n  addInputEvents();\n}\nfunction handleColor(colorRgba, lastInputSet) {\n  var hexColor = lastInputSet.querySelector('.input-container:last-child .input-div__input');\n  var hexArr = [];\n  colorRgba.forEach(function (item, index) {\n    var alphaChannel = item.value.slice(0, item.value.length - 1);\n    var hexValue = rgbToHex(item, index, colorRgba, alphaChannel);\n    if (index !== colorRgba.length - 1) {\n      if (+item.value < 0 || +item.value > 255 || Number.isNaN(+item.value)) {\n        item.value = '';\n        hexColor.value = '';\n        return;\n      }\n      if (+item.value >= 0 && +item.value <= 255) {\n        hexValue.length === 1 ? hexArr.push('0' + hexValue) : hexArr.push(hexValue);\n      }\n    } else if (!item.value.includes('%')) {\n      +item.value > 0 && +item.value <= 1 ? hexArr.push(hexValue) : null;\n    }\n    if (item.value.includes('%') && item.value.slice(item.value.length - 1) === '%') {\n      +alphaChannel >= 0 && +alphaChannel <= 100 ? hexArr.push(hexValue) : null;\n    }\n  });\n  hexColor.value = '#' + hexArr.join('');\n  hexColor.dispatchEvent(new Event('input'));\n}\nfunction handleInput(eTarget) {\n  var _selectElements7 = selectElements(),\n    _selectElements8 = _slicedToArray(_selectElements7, 1),\n    allInputSets = _selectElements8[0];\n  var regExHex = new RegExp('^#(([0-9a-fA-F]{2}){3,4}|([0-9a-fA-F]){3,4})$');\n  var isInset = [];\n  eTarget.classList.contains('input-div__input_hex-color') && regExHex.test(eTarget.value) ? eTarget.nextElementSibling.style.background = eTarget.value : null;\n  allInputSets.forEach(function (set) {\n    isInset.push(set.querySelector('.checkbox-div__checkbox').checked);\n    var inputFields = set.querySelectorAll('.input-div__input');\n    if (!eTarget.classList.contains('input-div__input_hex-color')) {\n      Number.isNaN(+eTarget.value) ? eTarget.value = '0' : null;\n    }\n    regExHex.test(inputFields[4].value) || inputFields[4].value === '' ? drawShadow(allInputSets, isInset) : null;\n  });\n}\nfunction rgbToHex(item, index, colorRgba, alphaChannel) {\n  if (index !== colorRgba.length - 1) return Number(item.value).toString(16);\n  if (+item.value >= 0 && +item.value <= 1) {\n    return Math.round(Number(item.value) * 255).toString(16);\n  }\n  if (item.value.includes('%') && item.value.slice(item.value.length - 1) === '%') {\n    return Math.round(Number(alphaChannel / 100) * 255).toString(16);\n  }\n}\nfunction drawShadow(allInputSets, isInset) {\n  var shadowBox = document.querySelectorAll('.shadow-boxes__shadow-box');\n  var inset = '';\n  allInputSets.forEach(function (item, index) {\n    var inputValues = item.querySelectorAll('.input-div__input');\n    isInset[index] ? inset = 'inset' : inset = '';\n    if (inputValues[4].value === '') return;\n    shadowBox[index].style.boxShadow = \"\".concat(inset, \" \").concat(+inputValues[0].value, \"px \").concat(+inputValues[1].value, \"px \\n            \").concat(+inputValues[2].value, \"px \").concat(+inputValues[3].value, \"px \").concat(inputValues[4].value);\n  });\n}\ninitShadowTester();\n\n//# sourceURL=webpack://box-shadow_tester/./src/main.js?");
+/* harmony import */ var _scss_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(812);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function initShadowTester() {
+  var wrapperDiv = document.querySelector('.wrapper');
+  resetInputFields();
+  addInputEvents();
+  wrapperDiv.addEventListener('click', function (e) {
+    switch (e.target.className) {
+      case 'input-div__btn':
+        handleClick(e.target);
+        break;
+      case 'wrapper__add-set' || 0:
+        addNewInputSet(e);
+        break;
+      case 'checkbox-div__checkbox':
+        handleInput(e.target);
+        break;
+      default:
+        return;
+    }
+  });
+  function handleClick(eTarget) {
+    var nextSibling = eTarget.nextElementSibling;
+    var prevSibling = eTarget.previousElementSibling;
+    if (nextSibling && nextSibling.className === 'input-div__input') {
+      nextSibling.value--;
+      nextSibling.dispatchEvent(new Event('input'));
+    }
+    if (prevSibling && prevSibling.className === 'input-div__input') {
+      prevSibling.value++;
+      prevSibling.dispatchEvent(new Event('input'));
+    }
+  }
+}
+function addInputEvents() {
+  var _selectElements = selectElements(),
+    _selectElements2 = _slicedToArray(_selectElements, 4),
+    inputFields = _selectElements2[1],
+    colorRgba = _selectElements2[2],
+    lastInputSet = _selectElements2[3];
+  inputFields.forEach(function (item) {
+    item.addEventListener('input', function (e) {
+      handleInput(e.target);
+    });
+  });
+  colorRgba.forEach(function (item) {
+    item.addEventListener('input', function () {
+      return handleColor(colorRgba, lastInputSet);
+    });
+  });
+}
+function selectElements() {
+  var allInputSets = document.querySelectorAll('.input-wrapper');
+  var lastInputSet = allInputSets[allInputSets.length - 1];
+  var inputFields = lastInputSet.querySelectorAll('.input-div__input');
+  var colorRgba = lastInputSet.querySelectorAll('.input-div__input-rgba');
+  return [allInputSets, inputFields, colorRgba, lastInputSet];
+}
+function resetInputFields() {
+  var _selectElements3 = selectElements(),
+    _selectElements4 = _slicedToArray(_selectElements3, 4),
+    inputFields = _selectElements4[1],
+    colorRgba = _selectElements4[2],
+    lastInputSet = _selectElements4[3];
+  inputFields.forEach(function (item, index) {
+    index !== inputFields.length - 1 ? item.value = '0' : item.value = '';
+  });
+  colorRgba.forEach(function (item) {
+    return item.value = '';
+  });
+  lastInputSet.querySelector('.checkbox-div__checkbox').checked = false;
+}
+function addNewInputSet(e) {
+  var newInputSet = document.querySelector('.input-wrapper').cloneNode(true);
+  var newShadowBox = document.createElement("div");
+  newShadowBox.classList.add('shadow-boxes__shadow-box');
+  newShadowBox.classList.add('shadow-boxes__shadow-box_shadow-box-absolute');
+  e.target.insertAdjacentElement('beforebegin', newInputSet);
+  document.querySelector('.shadow-boxes__shadow-box').insertAdjacentElement('afterend', newShadowBox);
+  var _selectElements5 = selectElements(),
+    _selectElements6 = _slicedToArray(_selectElements5, 1),
+    allInputSets = _selectElements6[0];
+  allInputSets[allInputSets.length - 1].querySelector('.color').style.background = 'none';
+  resetInputFields();
+  addInputEvents();
+}
+function handleColor(colorRgba, lastInputSet) {
+  var hexColor = lastInputSet.querySelector('.input-container:last-child .input-div__input');
+  var hexArr = [];
+  colorRgba.forEach(function (item, index) {
+    var alphaChannel = item.value.slice(0, item.value.length - 1);
+    var hexValue = rgbToHex(item, index, colorRgba, alphaChannel);
+    if (index !== colorRgba.length - 1) {
+      if (+item.value < 0 || +item.value > 255 || Number.isNaN(+item.value)) {
+        item.value = '';
+        hexColor.value = '';
+        return;
+      }
+      if (+item.value >= 0 && +item.value <= 255) {
+        hexValue.length === 1 ? hexArr.push('0' + hexValue) : hexArr.push(hexValue);
+      }
+    } else if (!item.value.includes('%')) {
+      +item.value > 0 && +item.value <= 1 ? hexArr.push(hexValue) : null;
+    }
+    if (item.value.includes('%') && item.value.slice(item.value.length - 1) === '%') {
+      +alphaChannel >= 0 && +alphaChannel <= 100 ? hexArr.push(hexValue) : null;
+    }
+  });
+  hexColor.value = '#' + hexArr.join('');
+  hexColor.dispatchEvent(new Event('input'));
+}
+function handleInput(eTarget) {
+  var _selectElements7 = selectElements(),
+    _selectElements8 = _slicedToArray(_selectElements7, 1),
+    allInputSets = _selectElements8[0];
+  var regExHex = new RegExp('^#(([0-9a-fA-F]{2}){3,4}|([0-9a-fA-F]){3,4})$');
+  var isInset = [];
+  eTarget.classList.contains('input-div__input_hex-color') && regExHex.test(eTarget.value) ? eTarget.nextElementSibling.style.background = eTarget.value : null;
+  allInputSets.forEach(function (set) {
+    isInset.push(set.querySelector('.checkbox-div__checkbox').checked);
+    var inputFields = set.querySelectorAll('.input-div__input');
+    if (!eTarget.classList.contains('input-div__input_hex-color')) {
+      Number.isNaN(+eTarget.value) ? eTarget.value = '0' : null;
+    }
+    regExHex.test(inputFields[4].value) || inputFields[4].value === '' ? drawShadow(allInputSets, isInset) : null;
+  });
+}
+function rgbToHex(item, index, colorRgba, alphaChannel) {
+  if (index !== colorRgba.length - 1) return Number(item.value).toString(16);
+  if (+item.value >= 0 && +item.value <= 1) {
+    return Math.round(Number(item.value) * 255).toString(16);
+  }
+  if (item.value.includes('%') && item.value.slice(item.value.length - 1) === '%') {
+    return Math.round(Number(alphaChannel / 100) * 255).toString(16);
+  }
+}
+function drawShadow(allInputSets, isInset) {
+  var shadowBox = document.querySelectorAll('.shadow-boxes__shadow-box');
+  var inset = '';
+  allInputSets.forEach(function (item, index) {
+    var inputValues = item.querySelectorAll('.input-div__input');
+    isInset[index] ? inset = 'inset' : inset = '';
+    if (inputValues[4].value === '') return;
+    shadowBox[index].style.boxShadow = "".concat(inset, " ").concat(+inputValues[0].value, "px ").concat(+inputValues[1].value, "px \n            ").concat(+inputValues[2].value, "px ").concat(+inputValues[3].value, "px ").concat(inputValues[4].value);
+  });
+}
+initShadowTester();
 
 /***/ }),
 
-/***/ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js":
-/*!*******************************************************************************!*\
-  !*** ./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js ***!
-  \*******************************************************************************/
+/***/ 783:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("\n\n/* eslint-env browser */\n/*\n  eslint-disable\n  no-console,\n  func-names\n*/\n\n/** @typedef {any} TODO */\n\nvar normalizeUrl = __webpack_require__(/*! ./normalize-url */ \"./node_modules/mini-css-extract-plugin/dist/hmr/normalize-url.js\");\nvar srcByModuleId = Object.create(null);\nvar noDocument = typeof document === \"undefined\";\nvar forEach = Array.prototype.forEach;\n\n/**\n * @param {function} fn\n * @param {number} time\n * @returns {(function(): void)|*}\n */\nfunction debounce(fn, time) {\n  var timeout = 0;\n  return function () {\n    // @ts-ignore\n    var self = this;\n    // eslint-disable-next-line prefer-rest-params\n    var args = arguments;\n    var functionCall = function functionCall() {\n      return fn.apply(self, args);\n    };\n    clearTimeout(timeout);\n\n    // @ts-ignore\n    timeout = setTimeout(functionCall, time);\n  };\n}\nfunction noop() {}\n\n/**\n * @param {TODO} moduleId\n * @returns {TODO}\n */\nfunction getCurrentScriptUrl(moduleId) {\n  var src = srcByModuleId[moduleId];\n  if (!src) {\n    if (document.currentScript) {\n      src = /** @type {HTMLScriptElement} */document.currentScript.src;\n    } else {\n      var scripts = document.getElementsByTagName(\"script\");\n      var lastScriptTag = scripts[scripts.length - 1];\n      if (lastScriptTag) {\n        src = lastScriptTag.src;\n      }\n    }\n    srcByModuleId[moduleId] = src;\n  }\n\n  /**\n   * @param {string} fileMap\n   * @returns {null | string[]}\n   */\n  return function (fileMap) {\n    if (!src) {\n      return null;\n    }\n    var splitResult = src.split(/([^\\\\/]+)\\.js$/);\n    var filename = splitResult && splitResult[1];\n    if (!filename) {\n      return [src.replace(\".js\", \".css\")];\n    }\n    if (!fileMap) {\n      return [src.replace(\".js\", \".css\")];\n    }\n    return fileMap.split(\",\").map(function (mapRule) {\n      var reg = new RegExp(\"\".concat(filename, \"\\\\.js$\"), \"g\");\n      return normalizeUrl(src.replace(reg, \"\".concat(mapRule.replace(/{fileName}/g, filename), \".css\")));\n    });\n  };\n}\n\n/**\n * @param {TODO} el\n * @param {string} [url]\n */\nfunction updateCss(el, url) {\n  if (!url) {\n    if (!el.href) {\n      return;\n    }\n\n    // eslint-disable-next-line\n    url = el.href.split(\"?\")[0];\n  }\n  if (!isUrlRequest( /** @type {string} */url)) {\n    return;\n  }\n  if (el.isLoaded === false) {\n    // We seem to be about to replace a css link that hasn't loaded yet.\n    // We're probably changing the same file more than once.\n    return;\n  }\n  if (!url || !(url.indexOf(\".css\") > -1)) {\n    return;\n  }\n\n  // eslint-disable-next-line no-param-reassign\n  el.visited = true;\n  var newEl = el.cloneNode();\n  newEl.isLoaded = false;\n  newEl.addEventListener(\"load\", function () {\n    if (newEl.isLoaded) {\n      return;\n    }\n    newEl.isLoaded = true;\n    el.parentNode.removeChild(el);\n  });\n  newEl.addEventListener(\"error\", function () {\n    if (newEl.isLoaded) {\n      return;\n    }\n    newEl.isLoaded = true;\n    el.parentNode.removeChild(el);\n  });\n  newEl.href = \"\".concat(url, \"?\").concat(Date.now());\n  if (el.nextSibling) {\n    el.parentNode.insertBefore(newEl, el.nextSibling);\n  } else {\n    el.parentNode.appendChild(newEl);\n  }\n}\n\n/**\n * @param {string} href\n * @param {TODO} src\n * @returns {TODO}\n */\nfunction getReloadUrl(href, src) {\n  var ret;\n\n  // eslint-disable-next-line no-param-reassign\n  href = normalizeUrl(href);\n  src.some(\n  /**\n   * @param {string} url\n   */\n  // eslint-disable-next-line array-callback-return\n  function (url) {\n    if (href.indexOf(src) > -1) {\n      ret = url;\n    }\n  });\n  return ret;\n}\n\n/**\n * @param {string} [src]\n * @returns {boolean}\n */\nfunction reloadStyle(src) {\n  if (!src) {\n    return false;\n  }\n  var elements = document.querySelectorAll(\"link\");\n  var loaded = false;\n  forEach.call(elements, function (el) {\n    if (!el.href) {\n      return;\n    }\n    var url = getReloadUrl(el.href, src);\n    if (!isUrlRequest(url)) {\n      return;\n    }\n    if (el.visited === true) {\n      return;\n    }\n    if (url) {\n      updateCss(el, url);\n      loaded = true;\n    }\n  });\n  return loaded;\n}\nfunction reloadAll() {\n  var elements = document.querySelectorAll(\"link\");\n  forEach.call(elements, function (el) {\n    if (el.visited === true) {\n      return;\n    }\n    updateCss(el);\n  });\n}\n\n/**\n * @param {string} url\n * @returns {boolean}\n */\nfunction isUrlRequest(url) {\n  // An URL is not an request if\n\n  // It is not http or https\n  if (!/^[a-zA-Z][a-zA-Z\\d+\\-.]*:/.test(url)) {\n    return false;\n  }\n  return true;\n}\n\n/**\n * @param {TODO} moduleId\n * @param {TODO} options\n * @returns {TODO}\n */\nmodule.exports = function (moduleId, options) {\n  if (noDocument) {\n    console.log(\"no window.document found, will not HMR CSS\");\n    return noop;\n  }\n  var getScriptSrc = getCurrentScriptUrl(moduleId);\n  function update() {\n    var src = getScriptSrc(options.filename);\n    var reloaded = reloadStyle(src);\n    if (options.locals) {\n      console.log(\"[HMR] Detected local css modules. Reload all css\");\n      reloadAll();\n      return;\n    }\n    if (reloaded) {\n      console.log(\"[HMR] css reload %s\", src.join(\" \"));\n    } else {\n      console.log(\"[HMR] Reload all css\");\n      reloadAll();\n    }\n  }\n  return debounce(update, 50);\n};\n\n//# sourceURL=webpack://box-shadow_tester/./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js?");
+
+
+/* eslint-env browser */
+/*
+  eslint-disable
+  no-console,
+  func-names
+*/
+
+/** @typedef {any} TODO */
+
+var normalizeUrl = __webpack_require__(618);
+var srcByModuleId = Object.create(null);
+var noDocument = typeof document === "undefined";
+var forEach = Array.prototype.forEach;
+
+/**
+ * @param {function} fn
+ * @param {number} time
+ * @returns {(function(): void)|*}
+ */
+function debounce(fn, time) {
+  var timeout = 0;
+  return function () {
+    // @ts-ignore
+    var self = this;
+    // eslint-disable-next-line prefer-rest-params
+    var args = arguments;
+    var functionCall = function functionCall() {
+      return fn.apply(self, args);
+    };
+    clearTimeout(timeout);
+
+    // @ts-ignore
+    timeout = setTimeout(functionCall, time);
+  };
+}
+function noop() {}
+
+/**
+ * @param {TODO} moduleId
+ * @returns {TODO}
+ */
+function getCurrentScriptUrl(moduleId) {
+  var src = srcByModuleId[moduleId];
+  if (!src) {
+    if (document.currentScript) {
+      src = /** @type {HTMLScriptElement} */document.currentScript.src;
+    } else {
+      var scripts = document.getElementsByTagName("script");
+      var lastScriptTag = scripts[scripts.length - 1];
+      if (lastScriptTag) {
+        src = lastScriptTag.src;
+      }
+    }
+    srcByModuleId[moduleId] = src;
+  }
+
+  /**
+   * @param {string} fileMap
+   * @returns {null | string[]}
+   */
+  return function (fileMap) {
+    if (!src) {
+      return null;
+    }
+    var splitResult = src.split(/([^\\/]+)\.js$/);
+    var filename = splitResult && splitResult[1];
+    if (!filename) {
+      return [src.replace(".js", ".css")];
+    }
+    if (!fileMap) {
+      return [src.replace(".js", ".css")];
+    }
+    return fileMap.split(",").map(function (mapRule) {
+      var reg = new RegExp("".concat(filename, "\\.js$"), "g");
+      return normalizeUrl(src.replace(reg, "".concat(mapRule.replace(/{fileName}/g, filename), ".css")));
+    });
+  };
+}
+
+/**
+ * @param {TODO} el
+ * @param {string} [url]
+ */
+function updateCss(el, url) {
+  if (!url) {
+    if (!el.href) {
+      return;
+    }
+
+    // eslint-disable-next-line
+    url = el.href.split("?")[0];
+  }
+  if (!isUrlRequest( /** @type {string} */url)) {
+    return;
+  }
+  if (el.isLoaded === false) {
+    // We seem to be about to replace a css link that hasn't loaded yet.
+    // We're probably changing the same file more than once.
+    return;
+  }
+  if (!url || !(url.indexOf(".css") > -1)) {
+    return;
+  }
+
+  // eslint-disable-next-line no-param-reassign
+  el.visited = true;
+  var newEl = el.cloneNode();
+  newEl.isLoaded = false;
+  newEl.addEventListener("load", function () {
+    if (newEl.isLoaded) {
+      return;
+    }
+    newEl.isLoaded = true;
+    el.parentNode.removeChild(el);
+  });
+  newEl.addEventListener("error", function () {
+    if (newEl.isLoaded) {
+      return;
+    }
+    newEl.isLoaded = true;
+    el.parentNode.removeChild(el);
+  });
+  newEl.href = "".concat(url, "?").concat(Date.now());
+  if (el.nextSibling) {
+    el.parentNode.insertBefore(newEl, el.nextSibling);
+  } else {
+    el.parentNode.appendChild(newEl);
+  }
+}
+
+/**
+ * @param {string} href
+ * @param {TODO} src
+ * @returns {TODO}
+ */
+function getReloadUrl(href, src) {
+  var ret;
+
+  // eslint-disable-next-line no-param-reassign
+  href = normalizeUrl(href);
+  src.some(
+  /**
+   * @param {string} url
+   */
+  // eslint-disable-next-line array-callback-return
+  function (url) {
+    if (href.indexOf(src) > -1) {
+      ret = url;
+    }
+  });
+  return ret;
+}
+
+/**
+ * @param {string} [src]
+ * @returns {boolean}
+ */
+function reloadStyle(src) {
+  if (!src) {
+    return false;
+  }
+  var elements = document.querySelectorAll("link");
+  var loaded = false;
+  forEach.call(elements, function (el) {
+    if (!el.href) {
+      return;
+    }
+    var url = getReloadUrl(el.href, src);
+    if (!isUrlRequest(url)) {
+      return;
+    }
+    if (el.visited === true) {
+      return;
+    }
+    if (url) {
+      updateCss(el, url);
+      loaded = true;
+    }
+  });
+  return loaded;
+}
+function reloadAll() {
+  var elements = document.querySelectorAll("link");
+  forEach.call(elements, function (el) {
+    if (el.visited === true) {
+      return;
+    }
+    updateCss(el);
+  });
+}
+
+/**
+ * @param {string} url
+ * @returns {boolean}
+ */
+function isUrlRequest(url) {
+  // An URL is not an request if
+
+  // It is not http or https
+  if (!/^[a-zA-Z][a-zA-Z\d+\-.]*:/.test(url)) {
+    return false;
+  }
+  return true;
+}
+
+/**
+ * @param {TODO} moduleId
+ * @param {TODO} options
+ * @returns {TODO}
+ */
+module.exports = function (moduleId, options) {
+  if (noDocument) {
+    console.log("no window.document found, will not HMR CSS");
+    return noop;
+  }
+  var getScriptSrc = getCurrentScriptUrl(moduleId);
+  function update() {
+    var src = getScriptSrc(options.filename);
+    var reloaded = reloadStyle(src);
+    if (options.locals) {
+      console.log("[HMR] Detected local css modules. Reload all css");
+      reloadAll();
+      return;
+    }
+    if (reloaded) {
+      console.log("[HMR] css reload %s", src.join(" "));
+    } else {
+      console.log("[HMR] Reload all css");
+      reloadAll();
+    }
+  }
+  return debounce(update, 50);
+};
 
 /***/ }),
 
-/***/ "./node_modules/mini-css-extract-plugin/dist/hmr/normalize-url.js":
-/*!************************************************************************!*\
-  !*** ./node_modules/mini-css-extract-plugin/dist/hmr/normalize-url.js ***!
-  \************************************************************************/
+/***/ 618:
 /***/ ((module) => {
 
-eval("\n\n/* eslint-disable */\n\n/**\n * @param {string[]} pathComponents\n * @returns {string}\n */\nfunction normalizeUrl(pathComponents) {\n  return pathComponents.reduce(function (accumulator, item) {\n    switch (item) {\n      case \"..\":\n        accumulator.pop();\n        break;\n      case \".\":\n        break;\n      default:\n        accumulator.push(item);\n    }\n    return accumulator;\n  }, /** @type {string[]} */[]).join(\"/\");\n}\n\n/**\n * @param {string} urlString\n * @returns {string}\n */\nmodule.exports = function (urlString) {\n  urlString = urlString.trim();\n  if (/^data:/i.test(urlString)) {\n    return urlString;\n  }\n  var protocol = urlString.indexOf(\"//\") !== -1 ? urlString.split(\"//\")[0] + \"//\" : \"\";\n  var components = urlString.replace(new RegExp(protocol, \"i\"), \"\").split(\"/\");\n  var host = components[0].toLowerCase().replace(/\\.$/, \"\");\n  components[0] = \"\";\n  var path = normalizeUrl(components);\n  return protocol + host + path;\n};\n\n//# sourceURL=webpack://box-shadow_tester/./node_modules/mini-css-extract-plugin/dist/hmr/normalize-url.js?");
+
+
+/* eslint-disable */
+
+/**
+ * @param {string[]} pathComponents
+ * @returns {string}
+ */
+function normalizeUrl(pathComponents) {
+  return pathComponents.reduce(function (accumulator, item) {
+    switch (item) {
+      case "..":
+        accumulator.pop();
+        break;
+      case ".":
+        break;
+      default:
+        accumulator.push(item);
+    }
+    return accumulator;
+  }, /** @type {string[]} */[]).join("/");
+}
+
+/**
+ * @param {string} urlString
+ * @returns {string}
+ */
+module.exports = function (urlString) {
+  urlString = urlString.trim();
+  if (/^data:/i.test(urlString)) {
+    return urlString;
+  }
+  var protocol = urlString.indexOf("//") !== -1 ? urlString.split("//")[0] + "//" : "";
+  var components = urlString.replace(new RegExp(protocol, "i"), "").split("/");
+  var host = components[0].toLowerCase().replace(/\.$/, "");
+  components[0] = "";
+  var path = normalizeUrl(components);
+  return protocol + host + path;
+};
 
 /***/ }),
 
-/***/ "./src/scss/styles.scss":
-/*!******************************!*\
-  !*** ./src/scss/styles.scss ***!
-  \******************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ 812:
+/***/ ((module, __unused_webpack___webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n    if(true) {\n      // 1679847066391\n      var cssReload = __webpack_require__(/*! ../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ \"./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js\")(module.id, {\"locals\":false});\n      module.hot.dispose(cssReload);\n      module.hot.accept(undefined, cssReload);\n    }\n  \n\n//# sourceURL=webpack://box-shadow_tester/./src/scss/styles.scss?");
+// extracted by mini-css-extract-plugin
+
+    if(true) {
+      // 1680099771745
+      var cssReload = __webpack_require__(783)(module.id, {"locals":false});
+      module.hot.dispose(cssReload);
+      module.hot.accept(undefined, cssReload);
+    }
+  
 
 /***/ })
 
@@ -120,7 +532,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("c974d9a9832986a83ff5")
+/******/ 		__webpack_require__.h = () => ("d009525d1eb3ceb44935")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
@@ -182,17 +594,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /******/ 			script.onerror = onScriptComplete.bind(null, script.onerror);
 /******/ 			script.onload = onScriptComplete.bind(null, script.onload);
 /******/ 			needAttach && document.head.appendChild(script);
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -710,7 +1111,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = __webpack_require__.hmrS_jsonp = __webpack_require__.hmrS_jsonp || {
-/******/ 			"main": 0
+/******/ 			179: 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -1222,7 +1623,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /******/ 	// module cache are used so entry inlining is disabled
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/main.js");
+/******/ 	var __webpack_exports__ = __webpack_require__(939);
 /******/ 	
 /******/ })()
 ;

@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   devServer: {
     historyApiFallback: true,
     static: path.resolve(__dirname, './'),
