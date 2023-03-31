@@ -80,7 +80,7 @@ function addNewInputSet(e) {
     e.target.insertAdjacentElement('beforebegin', newInputSet);
     document.querySelector('.shadow-boxes__shadow-box').insertAdjacentElement('afterend', newShadowBox);
     const [allInputSets,] = selectElements();
-    allInputSets[allInputSets.length - 1].querySelector('.color').style.background = 'none';
+    allInputSets[allInputSets.length - 1].querySelector('.input-div__color').style.background = 'none';
     resetInputFields();
     addInputEvents();
 }

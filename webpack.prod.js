@@ -7,14 +7,6 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = {
   mode: 'production',
-  devServer: {
-    historyApiFallback: true,
-    static: path.resolve(__dirname, './'),
-    open: true,
-    compress: true,
-    hot: true,
-    port: 3000,
-  },
   entry: {
     main: path.resolve(__dirname, './src/main.js')
   },
@@ -25,7 +17,6 @@ module.exports = {
       filename: 'index.html', // output file
     }),
 	new CleanWebpackPlugin(),
-	new webpack.HotModuleReplacementPlugin(),
 	new MiniCssExtractPlugin()
   ],
   output: {
