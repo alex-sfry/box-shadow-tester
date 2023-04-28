@@ -52,7 +52,7 @@ button:hover {
     .checkbox-div {
         @include flex-c;
         gap: 10px;
-        padding-left: 100px;
+        padding-left: 20px;
     }
 
     .shadow-boxes {
@@ -75,6 +75,7 @@ button:hover {
     .input-wrapper {
         display: flex;
         flex-wrap: wrap;
+
         gap: 20px;
 
         .input-container {
@@ -83,7 +84,7 @@ button:hover {
 
             .input-div {
                 @include flex-c;
-                gap: 5px;
+                gap: 10px;
 
                 &__btn {
                     width: 24px;
@@ -131,6 +132,10 @@ button:hover {
         .input-container:last-child {
             align-items: flex-start;
 
+            .input-div {
+                flex-wrap: wrap;
+            }
+
             .input-div__input {
                 width: 200px;
                 height: 18px;
@@ -144,8 +149,20 @@ button:hover {
             }
 
             .input-container__label {
-                margin-left: 42px;
+                margin-left: 42px;               
             }
         }
+    }
+}
+
+@media screen and (max-height: 678px) {
+    .wrapper__add-set {
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .checkbox-div {
+        margin-bottom: 30px;
     }
 }
