@@ -27,14 +27,19 @@ function initShadowTester() {
         const nextSibling = eTarget.nextElementSibling;
         const prevSibling = eTarget.previousElementSibling;
 
-        if (nextSibling && nextSibling.className === 'input-div__input') {
+        if (nextSibling && nextSibling.classList.contains('input-div__input')) {
+            if (nextSibling.classList.contains('input-div__input_not-negative') &&
+                +nextSibling.value === 0) {
+                return;
+            }
+
             nextSibling.value--;
             nextSibling.dispatchEvent(new Event('input'));
         }
 
-        if (prevSibling && prevSibling.className === 'input-div__input') {
-            prevSibling.value++;
-            prevSibling.dispatchEvent(new Event('input'));
+        if (prevSibling && prevSibling.classList.contains('input-div__input')) {
+                prevSibling.value++;
+                prevSibling.dispatchEvent(new Event('input'));
         }
     }
 }
@@ -121,15 +126,22 @@ function handleInput(eTarget) {
     const [allInputSets,] = selectElements();
     const regExHex = new RegExp('^#(([0-9a-fA-F]{2}){3,4}|([0-9a-fA-F]){3,4})$');
     const isInset = [];
+    
     eTarget.classList.contains('input-div__input_hex-color') && regExHex.test(eTarget.value) ?
         eTarget.nextElementSibling.style.background = eTarget.value : null;
 
     allInputSets.forEach(set => {
         isInset.push(set.querySelector('.checkbox-div__checkbox').checked);
         const inputFields = set.querySelectorAll('.input-div__input');
-
+        
         if (!eTarget.classList.contains('input-div__input_hex-color')) {
-            Number.isNaN(+eTarget.value) ? eTarget.value = '0' : null;
+            if (eTarget.classList.contains('input-div__input_negative')) {
+                Number.isNaN(+eTarget.value) && eTarget.value[0] !== '-' ? eTarget.value = '0' : null;
+            } 
+            
+            if(eTarget.classList.contains('input-div__input_not-negative')) {
+                Number.isNaN(+eTarget.value) ? eTarget.value = '0' : null;
+            }
         }
 
         regExHex.test(inputFields[4].value) || inputFields[4].value === '' ?
